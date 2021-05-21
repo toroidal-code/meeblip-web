@@ -39,7 +39,7 @@
         <h2>envelope</h2>
         <div class="knobLabelPair">
           <h3>amp attack</h3>
-          <input name="aAttck" type="text" class="dial" value="64" />
+          <input name="aAttck" type="text" class="dial" value="0" />
         </div>
         <div class="knobLabelPair">
           <h3>amp decay</h3>
@@ -90,14 +90,24 @@
         <h2>oscillator a</h2>
         <div id="oscAWave" class="knobLabelPairWide switch">
           <h3>osc a wave</h3>
-          <input type="radio" id="oscAWave1" name="oscAWave" checked="checked" value="0" /><label for="oscAWave1">pulse</label>
-          <input type="radio" id="oscAWave2" name="oscAWave" value="127" /><label for="oscAWave2">sawtooth</label>
+          <input type="radio" id="oscAWave1" name="oscAWave" checked="checked" value="0" /><label for="oscAWave1">sawtooth</label>
+          <input type="radio" id="oscAWave2" name="oscAWave" value="127" /><label for="oscAWave2">pulse</label>
         </div>
-        <div id="oscANoise" class="knobLabelPairWide switch">
+        <div id="oscANoise" class="knobLabelPair switch">
           <h3>osc a noise</h3>
           <input type="radio" id="oscANoise1" name="oscANoise" checked="checked" value="0" /><label for="oscANoise1">off</label>
           <input type="radio" id="oscANoise2" name="oscANoise" value="127" /><label for="oscANoise2">on</label>
         </div>
+        <div class="knobLabelPair">
+          <h3>pulse width (0% to 50%)</h3>
+          <input name="oscPW" type="text" class="dial" value="127" />
+        </div>
+        <div id="pwmSweep" class="knobLabelPairStacked switch">
+          <h3>pwm sweep</h3>
+          <input type="radio" id="pwmSweep1" name="pwmSweep" checked="checked" value="0"><label for="pwmSweep1">off</label>
+          <input type="radio" id="pwmSweep2" name="pwmSweep" value="127"><label for="pwmSweep2">on</label>
+        </div>
+
       </div>
       <div id="oscillator b" class="knobGroup groupRight">
         <h2>oscillator b</h2>
@@ -108,8 +118,8 @@
         </div>
         <div id="oscBWave" class="knobLabelPairWide switch">
           <h3>osc b wave</h3>
-          <input type="radio" id="oscBWave1" name="oscBWave" checked="checked" value="0" /><label for="oscBWave1">pulse</label>
-          <input type="radio" id="oscBWave2" name="oscBWave" value="127" /><label for="oscBWave2">triangle</label>
+          <input type="radio" id="oscBWave1" name="oscBWave" checked="checked" value="0" /><label for="oscBWave1">triangle</label>
+          <input type="radio" id="oscBWave2" name="oscBWave" value="127" /><label for="oscBWave2">square</label>
         </div>
         <div id="oscBOct" class="knobLabelPairWide switch">
           <h3>osc b octave</h3>
@@ -123,10 +133,6 @@
       <div id="oscillators" class="knobGroup">
         <h2>oscillators</h2>
         <div class="knobLabelPair">
-          <h3>pulse width</h3>
-          <input name="oscPW" type="text" class="dial" value="64" />
-        </div>
-        <div class="knobLabelPair">
           <h3>detune</h3>
           <input name="detune" type="text" class="dial" value="64" />
         </div>
@@ -135,12 +141,7 @@
           <input type="radio" id="oscFm1" name="oscFm" checked="checked" value="0"><label for="oscFm1">off</label>
           <input type="radio" id="oscFm2" name="oscFm" value="127"><label for="oscFm2">on</label>
         </div>
-        <div id="pwmSweep" class="knobLabelPairStacked switch">
-          <h3>pwm sweep</h3>
-          <input type="radio" id="pwmSweep1" name="distort" checked="checked" value="0"><label for="pwmSweep1">off</label>
-          <input type="radio" id="pwmSweep2" name="distort" value="127"><label for="pwmSweep2">on</label>
-        </div>
-        <div id="distort" class="knobLabelPairStacked switch">
+        <div id="distort" class="knobLabelPair switch">
           <h3>distortion/bandlimit</h3>
           <input type="radio" id="distort1" name="distort" checked="checked" value="0"><label for="distort1">off</label>
           <input type="radio" id="distort2" name="distort" value="127"><label for="distort2">on</label>
@@ -167,14 +168,14 @@
 
         <div id="lWave" class="knobLabelPairWide switch" style="margin-left: 16px">
           <h3>shape</h3>
-          <input type="radio" id="lWave1" name="lWave" checked="checked" value="0" /><label for="lWave1">pulse</label>
-          <input type="radio" id="lWave2" name="lWave" value="127" /><label for="lWave2">triangle</label>
+          <input type="radio" id="lWave1" name="lWave" checked="checked" value="0" /><label for="lWave1">triangle</label>
+          <input type="radio" id="lWave2" name="lWave" value="127" /><label for="lWave2">pulse</label>
         </div>
     
         <div id="lDest" class="knobLabelPair switch">
           <h3>dest</h3>
-          <input type="radio" id="lDest1" name="lDest" value="0" /><label for="lDest1">osc</label>
-          <input type="radio" id="lDest2" name="lDest" checked="checked" value="127" /><label for="lDest2">filter</label>
+          <input type="radio" id="lDest1" name="lDest" checked="checked" value="0" /><label for="lDest1">filter</label>
+          <input type="radio" id="lDest2" name="lDest" value="127" /><label for="lDest2">osc</label>
         </div>
 
         <div id="lRand" class="knobLabelPair switch" style="margin-left: 16px">
@@ -314,7 +315,6 @@
       
       function handleRandRadioSet(radioInput, param, rand) {
           var val = 0;
-          // need to handle the 3-way switch here with special case...
           if (rand > 64) {
             val = 127;
           }
